@@ -1,0 +1,113 @@
+1.查询emp表中员工的名字和工资
+
+2.查询emp表中员工的编号,名字,奖金
+ 
+3.查询部门编号和部门名称 
+
+4.查询员工名字和入职日期 
+ 
+5.查询员工编号  名字 经理编号 
+ 
+6.查询员工编号 名字 部门编号
+ 
+7.查询名字是BLAKE的人的编号,名字,工资
+ 
+8.查询编号是7782的员工的编号,名字,工资,奖金
+
+9.查询职位是销售(SALESMAN)的人的名字,职位,入职日期 
+
+10.查询部门是10的人的编号,名字,部门编号
+
+11. 查询工资在1500 和2500 之间的员工信息
+
+12. 查询工资为1500 或3000的员工信息
+
+13 查询 工资在2000以上的员工的名字和工资
+
+14. 查询除职位为SALESMAN的 其他职位的员工信息
+
+15, 查询名字的倒数第三个字母是o的员工信息
+
+16, 查询工资范围不在2000 到3000的员工信息
+
+17, 查询名字以S开头倒数第二个字母是T, 且工资是1000, 并且属于10号部门的员工信息
+
+18, 查询名字不以H结尾的员工信息
+
+19, 查询名字中包含M的员工信息
+
+20, 查询属于10号或者30号部门的员工信息,或者工资>3000的员工信息
+
+21.选择部门30中的所有员工
+
+22.列出所有办事员(CLERK)的姓名，编号和部门编号
+
+23.找出佣金高于薪金的员工.
+
+24.显示不带有"R"的员工的姓名.
+
+25.请查询表DEPT中所有部门的情况。
+
+26.查询表DEPT中的部门号、部门名称两个字段的所有信息
+
+27.请从表EMP中查询10号部门工作的雇员姓名和工资
+
+28.选择部门30中的雇员　
+
+29.查询表EMP中所有的工资大于等于2000的雇员姓名
+
+30.查询emp表中所有员工的信息，要求查询结果列名用中文显示 
+
+31.查询工作是CLERK的员工信息
+
+32.查询名字中有R的员工信息
+
+33.查询有佣金大于100的员工信息(注佣金字段为COMM)
+
+34.查询10号和20号部门的员工信息
+
+35.查询员工编号、姓名、薪资，按薪资升序排列
+
+
+
+select ename, sal from emp;
+select empno, ename, comm from emp;
+select deptno, dname from dept;
+select ename, hiredate from emp;
+select empno, ename, mgr from emp;
+
+select empno, ename, deptno from emp;
+select empno, ename, sal from emp where ename = 'BLAKE' ;
+select empno, ename, sal, comm from emp where empno = '7782';
+select ename, job, hiredate from emp where job = 'SALESMAN';
+select empno, ename, deptno from emp where deptno = '10';
+
+select * from emp where sal between 1500 and 2500;
+select * from emp where sal = 1500 or sal = 3000;
+select ename, sal from emp where sal > 2000;
+select * from emp where job != 'SALESMAN';
+select * from emp where ename like'%O__';
+
+select * from emp where sal not between 2000 and 3000;
+select * from emp where ename like'S%T_' and sal = 1000 and deptno = 10; 
+select * from emp where ename not like'%H';
+select * from emp where ename like'%M%';
+select * from emp where deptno in(10, 30) or sal > 3000;
+
+select * from emp where deptno = 30;
+select ename, empno, deptno from emp where job = 'CLERK';
+select * from emp where comm > sal; 
+select ename from emp where ename not like'%R%';
+select * from dept;
+
+select deptno, dname from dept;
+select ename, sal from emp where deptno = 10;
+select * from emp where deptno = 30;
+select ename from emp where sal >=2000;
+select empno "员工编号",ename "员工姓名" ,job as "工作", mgr 领导编号，hiredate "入职日期", sal 工资, comm 奖金,deptno 部门编号 from emp;
+
+select * from emp where job = 'CLERK';
+select * from emp where ename like'%R%';
+select * from emp where comm > 100;
+select * from emp where deptno in(10, 20);
+select empno, ename, sal from emp order by sal;
