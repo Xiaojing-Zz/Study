@@ -163,7 +163,7 @@ SELECT empno || ename || job || mgr || sal || comm || hiredate || deptno FROM em
 ```sql
 SELECT 列名1 AS "别名",
        列名2    "别名",
-       列名3     刨名          -- 常用写法
+       列名3     别名          -- 常用写法
   FROM 表名;
 ```
 
